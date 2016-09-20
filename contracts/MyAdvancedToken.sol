@@ -125,7 +125,7 @@ contract MyAdvancedToken is owned, token {
       //  tokenSymbol="DDT";
         address centralMinter
 
-    ) token (initialSupply=10000000000000000, tokenName="EthereumTokenSteroid", decimalUnits=8, tokenSymbol="ETS") {
+    ) token (initialSupply, tokenName, decimalUnits, tokenSymbol) {
         if(centralMinter != 0 ) owner = centralMinter;      // Sets the owner as specified (if centralMinter is not specified the owner is msg.sender)
         balanceOf[owner] = initialSupply;                   // Give the owner all initial tokens
     }
