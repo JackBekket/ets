@@ -31,7 +31,7 @@ address public beneficiary;
     bool fundingGoalReached = false;
     event GoalReached(address beneficiary, uint amountRaised);
     event FundTransfer(address backer, uint amount, bool isContribution);
-    event Collected(address beneficiary, uint amountRaised)
+    event Collected(address beneficiary, uint amountRaised);
     bool crowdsaleClosed = false;
 //uint amountToPay;
 //uint amountAll;
