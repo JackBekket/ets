@@ -31,9 +31,12 @@ address public beneficiary;
     bool fundingGoalReached = false;
     event GoalReached(address beneficiary, uint amountRaised);
     event FundTransfer(address backer, uint amount, bool isContribution);
+    event Collected(address beneficiary, uint amountRaised)
     bool crowdsaleClosed = false;
-uint amountToPay;
-uint amountAll;
+//uint amountToPay;
+//uint amountAll;
+
+    uint256 public sellPrice;
 /* Initialization */
 function Sell(
 
@@ -66,12 +69,13 @@ function Sell(
 
 
           if (beneficiary == msg.sender) {
-            amountToPay=amountRaised;
-              if (beneficiary.send(amountToPay)) {
+      //      amountToPay=amountRaised;
+              if (beneficiary.send(amountRaised)) {
 
-                  FundTransfer(beneficiary, amountToPay, false);
-                  amountAll=amountAll+amountToPay
-                  amountToPay=0;
+                  FundTransfer(beneficiary, amountRaised, false);
+                //  amountAll=amountAll+amountToPay
+              //    amountToPay=0;
+              Collected(beneficiary,amountRaised);
                   amountRaised=0;
               } else {
                   //If we fail to send the funds to beneficiary, unlock funders balance
@@ -89,5 +93,12 @@ function Sell(
 
    }
  }
+
+function setPrice(uint256 newSellPrice){
+sellPrice=newSellPrice;
+
+}
+
+
 
 }
