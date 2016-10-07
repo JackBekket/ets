@@ -95,7 +95,7 @@ function Sell(
  }
 
 function setPrice(uint256 newSellPrice){
-sellPrice=newSellPrice;
+price=newSellPrice;
 
 }
 
